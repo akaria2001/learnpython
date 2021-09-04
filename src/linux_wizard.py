@@ -24,7 +24,7 @@ def print_blue(text):
     print(f'\033[1;34m{text}\033[0;0m')
 
 
-cmd_list = ['ls -l',
+cmd_list = ['ls -la',
             'df -h',
             'uname -r',
             'cat /etc/redhat-release']
