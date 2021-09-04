@@ -2,6 +2,14 @@ import subprocess as cmd
 import time
 import getpass
 
+"""
+Useful Links I referenced when writing this script
+
+Printing Coloured text - https://stackabuse.com/how-to-print-colored-text-in-python/
+Sub Process to call external commands - https://docs.python.org/3/library/subprocess.html
+
+"""
+
 
 def generate_username():
     username = getpass.getuser()
@@ -39,11 +47,22 @@ def main():
         for menu_item in generate_menu():
             print_green(f"{menu_item[0]}: {menu_item[1]}")
         print_red("0: Exit Application")
-        user_choice = int(input("Please select option : "))
+        try:
+            user_choice = int(input("Please select option : "))
+        except ValueError:
+            print_red("Please enter a valid choice")
         if user_choice == 0:
+            cmd.call("clear", shell=False)
             exit()
         else:
-            next
+            for choice in generate_menu():
+                if(user_choice == choice[0]):
+                    print_blue(f"Will run command : {choice[2]}")
+                    cmd.call(choice[2].split(), shell=False)
+                    time.sleep(1)
+                    input("Press any key to continue : ")
+                    cmd.call("clear", shell=False)
+                    break
 
 
 if __name__ == '__main__':
