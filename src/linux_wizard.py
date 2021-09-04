@@ -1,5 +1,6 @@
 import subprocess as cmd
 import getpass
+import time
 
 
 def generate_username():
@@ -19,11 +20,29 @@ def print_green(text):
     print(f'\033[1;32m{text}\033[0;0m')
 
 
+def print_blue(text):
+    print(f'\033[1;34m{text}\033[0;0m')
+
+
+cmd_list = ['ls -l',
+            'df -h',
+            'uname -r',
+            'cat /etc/redhat-release']
+
+
 def main():
     cmd.call(['clear'], shell=False)
-    print_yellow("Welcome to Linux Menu")
-    print_red("Hello World")
+    print_yellow(f"Hi {generate_username()}, Welcome to Linux Wizard")
+    print_red("The wizard will setup your Linux Machine")
     print_green("Written by Amit Karia www.it-howto.co.uk")
+    print_blue("Will run the folowing commands")
+    for command in cmd_list:
+        print_blue(command)
+    time.sleep(2)
+
+    for command in cmd_list:
+        print_green(f"Running command: {command}")
+        cmd.call(command.split(), shell=False)
 
 
 if __name__ == '__main__':
