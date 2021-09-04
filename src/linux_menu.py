@@ -5,8 +5,11 @@ import getpass
 """
 Useful Links I referenced when writing this script
 
-Printing Coloured text - https://stackabuse.com/how-to-print-colored-text-in-python/
-Sub Process to call external commands - https://docs.python.org/3/library/subprocess.html
+Printing Coloured text
+https://stackabuse.com/how-to-print-colored-text-in-python/
+
+Sub Process to call external commands
+https://docs.python.org/3/library/subprocess.html
 
 """
 
