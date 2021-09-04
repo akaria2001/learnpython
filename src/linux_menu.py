@@ -41,9 +41,9 @@ def generate_menu():
 
 def main():
     cmd.call("clear", shell=False)
-    print_yellow(f"Hello {generate_username()}, welcome to Linux Menu")
     time.sleep(1)
     while(True):
+        print_yellow(f"Hello {generate_username()}, welcome to Linux Menu")
         for menu_item in generate_menu():
             print_green(f"{menu_item[0]}: {menu_item[1]}")
         print_red("0: Exit Application")
