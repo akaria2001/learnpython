@@ -42,8 +42,9 @@ def generate_menu():
                   [4, 'Show Inode Usage', 'df -i'],
                   [5, 'Show OS and Version', 'cat /etc/redhat-release'],
                   [6, 'Show CPU Information', 'lscpu'],
-                  [7, 'Show Hardware Information', 'sudo lshw'],
-                  [8, 'Show contents of current directory', 'ls -la']]
+                  [7, 'Show Memory Information', 'free -h'],
+                  [8, 'Show Hardware Information', 'sudo lshw'],
+                  [9, 'Show contents of current directory', 'ls -la']]
     return menu_items
 
 
@@ -65,6 +66,7 @@ def main():
         else:
             for choice in generate_menu():
                 if(user_choice == choice[0]):
+                    print_blue(f"You have chosen : {choice[1]}")
                     print_blue(f"Will run command : '{choice[2]}'")
                     cmd.call(choice[2].split(), shell=False)
                     time.sleep(1)
