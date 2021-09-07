@@ -60,6 +60,15 @@ class TestGenerateUsername(unittest.TestCase):
         for item in menu:
             self.assertIsInstance(item[2], str)
 
+    def test_grab_os(self):
+        osversion = "Unknown"
+        try:
+            with open("/etc/redhat-release") as file:
+                osversion = file.read()
+        except FileNotFoundError:
+            next
+        self.assertEqual(osversion, linux_menu.grab_os())
+
 
 if __name__ == '__main__':
     cmd.call("clear", shell=False)
