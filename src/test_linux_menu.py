@@ -67,7 +67,7 @@ class TestGenerateUsername(unittest.TestCase):
                 osversion = file.read()
         except FileNotFoundError:
             next
-        self.assertEqual(osversion, linux_menu.grab_os())
+        self.assertEqual(osversion.strip(), linux_menu.grab_os())
 
 
 if __name__ == '__main__':
