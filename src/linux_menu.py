@@ -47,7 +47,8 @@ def generate_menu():
                   [6, 'Show CPU Information', 'lscpu'],
                   [7, 'Show Memory Information', 'free -h'],
                   [8, 'Show Hardware Information', 'sudo lshw'],
-                  [9, 'Show contents of current directory', 'ls -la']]
+                  [9, 'Show Uptime and Load Average', 'uptime'],
+                  [10, 'Show contents of current directory', 'ls -la']]
     return menu_items
 
 
@@ -77,8 +78,8 @@ def main():
         print_blue(f"OS Version: {grab_os()}")
         print_blue(f"Python Version: {platform.python_version()}\n")
         for menu_item in generate_menu():
-            print_green(f"{menu_item[0]}: {menu_item[1]}")
-        print_red("0: Exit Application")
+            print_green(f"{menu_item[0]}:\t{menu_item[1]}")
+        print_red("0:\tExit Application")
         try:
             user_choice = int(input("Please select option : "))
         except ValueError:
