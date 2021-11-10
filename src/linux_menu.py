@@ -67,8 +67,15 @@ def main():
     time.sleep(1)
     while(True):
         print_yellow(f"Hello {generate_username()}, welcome to Linux Menu")
+        print_green(r"""
+,-.___,-.
+\_/_ _\_/
+  )O_O(
+ { (_) }
+  `-^-'
+       """)
         print_blue(f"OS Version: {grab_os()}")
-        print_blue(f"Python Version: {platform.python_version()}")
+        print_blue(f"Python Version: {platform.python_version()}\n")
         for menu_item in generate_menu():
             print_green(f"{menu_item[0]}: {menu_item[1]}")
         print_red("0: Exit Application")
