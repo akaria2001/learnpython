@@ -14,6 +14,10 @@ https://docs.python.org/3/library/subprocess.html
 
 www.it-howto.co.uk
 
+For option detect OS and then run the correct command to update OS
+
+rhel, zorin, ubuntu, rocky
+
 """
 
 

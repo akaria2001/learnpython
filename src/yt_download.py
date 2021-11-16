@@ -5,7 +5,6 @@ import os
 Python Script to Download YouTube videos from a URL listing in a text file.
 
 Grabbed information from https://dev.to/seijind/how-to-download-youtube-videos-in-python-44od
-
 """
 
 
