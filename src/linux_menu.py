@@ -43,7 +43,7 @@ def print_blue(text):
 
 
 def generate_menu():
-    menu_items = [[1, 'OS Upgrade', 'sudo yum update -y'],
+    menu_items = [[1, 'OS Upgrade', 'sudo dnf update -y'],
                   [2, 'Show Kernel Version', 'uname -r'],
                   [3, 'Show Disk Space', 'df -h'],
                   [4, 'Show Inode Usage', 'df -i'],
