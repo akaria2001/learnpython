@@ -3,6 +3,7 @@ import subprocess as cmd
 from pathlib import Path
 import getpass
 import os
+import time
 
 
 def get_home_dir():
@@ -34,6 +35,12 @@ def create_workspace():
     for number in range(1, 11):
         print(f"Creating directory in {workspace}/directory-{number}")
         os.mkdir(f"directory-{number}", mode)
+        os.chdir(f"{workspace}/directory-{number}")
+        for file in range(1, 6):
+            print(f"Creating file at {file}")
+            open(f"file.txt-{file}", 'a').close()
+            time.sleep(0.5)
+        os.chdir(workspace)
     return os.listdir(workspace)
 
 
@@ -43,6 +50,15 @@ def main():
     print(f"Hello {get_username()} : home directory is {get_home_dir()}")
     print(f"Creating workspace at {workspace}")
     create_workspace()
+    cmd.call("clear", shell=False)
+    print("Workspace created")
+    print(f"Listing contents off new workspace : {workspace}")
+    filelist = []
+    for root, dir, files in os.walk(workspace):
+        for file in files:
+            filelist.append(os.path.join(root, file))
+    for name in filelist:
+        print(name)
 
 
 if __name__ == '__main__':
