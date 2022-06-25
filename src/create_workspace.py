@@ -32,14 +32,14 @@ def create_workspace():
         shutil.rmtree(workspace, ignore_errors=True)
         os.mkdir(workspace, mode)
     os.chdir(workspace)
-    for number in range(1, 11):
+    for number in range(1, 21):
         print(f"Creating directory in {workspace}/directory-{number}")
         os.mkdir(f"directory-{number}", mode)
         os.chdir(f"{workspace}/directory-{number}")
-        for file in range(1, 6):
+        for file in range(1, 11):
             print(f"Creating file at {file}")
             open(f"file.txt-{file}", 'a').close()
-            time.sleep(0.5)
+            time.sleep(0.25)
         os.chdir(workspace)
     return os.listdir(workspace)
 
