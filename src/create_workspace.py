@@ -33,12 +33,13 @@ def create_workspace():
         os.mkdir(workspace, mode)
     os.chdir(workspace)
     for number in range(1, 21):
-        print(f"Creating directory in {workspace}/directory-{number}")
+        icon = "\U0001F4C1"
+        print(f"Creating directory in {workspace}/directory-{number} {icon}")
         os.mkdir(f"directory-{number}", mode)
         os.chdir(f"{workspace}/directory-{number}")
         for file in range(1, 11):
-            print(f"Creating file at {file}")
-            open(f"file.txt-{file}", 'a').close()
+            print(f"Creating file-{file}.txt \u2705")
+            open(f"file-{file}.txt", 'a').close()
             time.sleep(0.25)
         os.chdir(workspace)
     return os.listdir(workspace)
@@ -47,11 +48,13 @@ def create_workspace():
 def main():
     workspace = f"{get_home_dir()}/workspaceAuto"
     cmd.call("clear", shell=False)
-    print(f"Hello {get_username()} : home directory is {get_home_dir()}")
-    print(f"Creating workspace at {workspace}")
-    create_workspace()
+    emoji = "\U0001F60F"
     cmd.call("clear", shell=False)
-    print("Workspace created")
+    print(f"Hi {get_username()} {emoji} : home directory is {get_home_dir()}")
+    print(f"Creating workspace at {workspace}")
+    time.sleep(1)
+    create_workspace()
+    print(f"Workspace created {emoji}")
     print(f"Listing contents off new workspace : {workspace}")
     filelist = []
     for root, dir, files in os.walk(workspace):
