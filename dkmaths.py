@@ -6,7 +6,7 @@ from pyfiglet import Figlet
 import argparse
 
 def print_yellow(text):
-    custom_fig = Figlet(font='standard', width=140)
+    custom_fig = Figlet(font='standard', width=160)
     print(f'\033[1;33m{custom_fig.renderText(text)}\033[0;0m')
 
 
@@ -15,16 +15,16 @@ def print_yellow_small(text):
 
 
 def print_red(text):
-    custom_fig = Figlet(font='standard', width=140)
+    custom_fig = Figlet(font='standard', width=160)
     print(f'\033[1;31m{custom_fig.renderText(text)}\033[0;0m')
 
 
 def print_green(text):
-    custom_fig = Figlet(font='standard', width=140)
+    custom_fig = Figlet(font='standard', width=160)
     print(f'\033[1;32m{custom_fig.renderText(text)}\033[0;0m')
 
 def print_debug(text):
-    custom_fig = Figlet(font='standard', width=140)
+    custom_fig = Figlet(font='standard', width=160)
     print(f'\033[1;34m{custom_fig.renderText(text)}\033[0;0m')
 
 def print_smiley(text):
@@ -77,22 +77,23 @@ def spiner():
         count = count + 1
         print('\r', frame, sep='', end='', flush=True)
         sleep(0.1)
-        if count > 35:
+        if count > 65:
             break
 
 def countdown_timer(timer_val_secs):
-    custom_fig = Figlet(font='standard', width=130)
     for count in range(timer_val_secs, -1, -1):
-        cmd.call("clear", shell=False)
-        print_yellow(custom_fig.renderText('Team Tool'))
-        print_red(custom_fig.renderText(f"Countdown\nSeconds left : {count} "))
+        cmd.call('clear', shell=False)
+        print_yellow(f"Countdown\nSeconds left : {count} ")
         sleep(1)
 
 
 def main():
     cmd.call("clear", shell=False)
-    print_yellow('Welcome to DK Maths Quiz')
+    print_yellow('Welcome to DK Year 6 Maths Quiz')
     print_picture()
+    print_smiley("We will get started soon ")
+    spiner()
+    countdown_timer(10)
 
 
 if __name__ == '__main__':
