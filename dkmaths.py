@@ -106,7 +106,7 @@ def spiner():
         count = count + 1
         print('\r', frame, sep='', end='', flush=True)
         sleep(0.1)
-        if count > 10:
+        if count > 65:
             break
 
 def countdown_timer(timer_val_secs):
@@ -130,7 +130,7 @@ def addition():
     counter = 1
     score = 0
     while (counter <= 10):
-        print_yellow_double("DK School Quiz")
+        print_yellow_double("DK School Quiz Addition Section")
         display_score(score)
         print_yellow_double(f"Addition Question {counter}")
         num1 = gen_number()
@@ -149,6 +149,28 @@ def addition():
     print_green_double(f"You scored {score} out of 10, well done")
 
 
+def subtraction():
+    counter = 1
+    score = 0
+    while (counter <= 10):
+        print_yellow_double("DK School Quiz Subtraction Section")
+        display_score(score)
+        print_yellow_double(f"Subtraction Question {counter}")
+        num1 = gen_number()
+        num2 = gen_number()
+        print_yellow_double(f"What is {num1} - {num2}? ")
+        answer = num1 - num2
+        user_answer = int(input())
+        cmd.call("clear", shell=False)
+        print_yellow(f"Your answered with {user_answer}")
+        print_yellow(f"Correct Answer is {answer}")
+        if(user_answer == answer):
+            score = score + 1
+        counter = counter +1
+        sleep(3)
+        cmd.call("clear",shell=False)
+    print_green_double(f"You scored {score} out of 10, well done")
+
 def main():
     cmd.call("clear", shell=False)
     play_music()
@@ -164,6 +186,7 @@ def main():
     sleep(3)
     cmd.call("clear", shell=False)
     addition()
+    subtraction()
     
 
 
