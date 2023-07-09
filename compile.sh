@@ -1,2 +1,2 @@
 #!/bin/sh
-pyinstaller -F --collect-all pyfiglet dkmaths.py
+pyinstaller -F --add-data "music.mp3:." --collect-all pyfiglet  dkmaths.py
