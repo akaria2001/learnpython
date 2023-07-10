@@ -107,10 +107,12 @@ def addition():
         answer = num1 + num2
         user_answer = int(input())
         cmd.call("clear", shell=False)
-        print_yellow(f"Your answered with {user_answer}")
         print_yellow(f"Correct Answer is {answer}")
         if(user_answer == answer):
             score = score + 1
+            print_yellow(f"Correct!!! : Your answered with {user_answer}")
+        else:
+            print_red(f"Incorrect!!! : Your answered with {user_answer}")
         counter = counter +1
         sleep(3)
         cmd.call("clear",shell=False)
