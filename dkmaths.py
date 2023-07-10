@@ -129,7 +129,7 @@ def display_score(score):
 def addition():
     counter = 1
     score = 0
-    while (counter <= 10):
+    while (counter <= 5):
         print_yellow_double("DK School Quiz Addition Section")
         display_score(score)
         print_yellow_double(f"Addition Question {counter}")
@@ -146,13 +146,14 @@ def addition():
         counter = counter +1
         sleep(3)
         cmd.call("clear",shell=False)
-    print_green_double(f"You scored {score} out of 10, well done")
+    print_green_double(f"You scored {score} out of {counter-1} for addition, well done")
+    return score
 
 
 def subtraction():
     counter = 1
     score = 0
-    while (counter <= 10):
+    while (counter <= 5):
         print_yellow_double("DK School Quiz Subtraction Section")
         display_score(score)
         print_yellow_double(f"Subtraction Question {counter}")
@@ -169,9 +170,36 @@ def subtraction():
         counter = counter +1
         sleep(3)
         cmd.call("clear",shell=False)
-    print_green_double(f"You scored {score} out of 10, well done")
+    print_green_double(f"You scored {score} out of {counter-1} for subtraction, well done")
+    return score
+
+def multiplication():
+    counter = 1
+    score = 0
+    while (counter <= 5):
+        print_yellow_double("DK School Quiz Multiplication Section")
+        display_score(score)
+        print_yellow_double(f"Multplication Question {counter}")
+        num1 = gen_number()
+        num2 = gen_number()
+        print_yellow_double(f"What is {num1} x {num2}? ")
+        answer = num1 * num2
+        user_answer = int(input())
+        cmd.call("clear", shell=False)
+        print_yellow(f"Your answered with {user_answer}")
+        print_yellow(f"Correct Answer is {answer}")
+        if(user_answer == answer):
+            score = score + 1
+        counter = counter +1
+        sleep(3)
+        cmd.call("clear",shell=False)
+    print_green_double(f"You scored {score} out of {counter-1} for multiplication, well done")
+    return score
+
+
 
 def main():
+    total_score = 0
     cmd.call("clear", shell=False)
     play_music()
     username = input("What is your name: ")
@@ -185,9 +213,10 @@ def main():
     print_yellow_double("Lets get started!!! ")
     sleep(3)
     cmd.call("clear", shell=False)
-    addition()
-    subtraction()
-    
+    total_score = addition()
+    total_score = total_score + subtraction()
+    total_score = total_score + multiplication()
+    print_green_double(f"Your final score is : {total_score}")
 
 
 if __name__ == '__main__':
